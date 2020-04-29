@@ -1,0 +1,30 @@
+﻿@model Workshop.ViewModels.RegisterCustomerViewModel
+
+<form asp-controller="Customer" asp-action="Register" method="post">
+
+    <div style="width: 50%; margin: auto;">
+
+        <h1>Register Customer</h1>
+
+        <label asp-for="Firstname" class="control-label"></label>
+        <input asp-for="Firstname" class="form-control" placeholder="Enter Firstname" />
+        <span asp-validation-for="Firstname" class="text-danger"></span>
+
+        <label asp-for="Lastname" class="control-label"></label>
+        <input asp-for="Lastname" class="form-control" placeholder="Enter Lastname" />
+        <span asp-validation-for="Lastname" class="text-danger"></span>
+
+        <label asp-for="SocialSecurityNumber" class="control-label">Social Security Number</label>
+        <input asp-for="SocialSecurityNumber" class="form-control" placeholder="Enter Social Security Number" />
+        <span asp-validation-for="SocialSecurityNumber" class="text-danger"></span>
+
+        <label asp-for="Address" class="control-label"></label>
+        <input asp-for="Address" class="form-control" placeholder="Enter Address" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+        <br />
+
+        <button type="submit" class="btn btn-light">Register Customer</button>
+
+    </div>
+
+</form>

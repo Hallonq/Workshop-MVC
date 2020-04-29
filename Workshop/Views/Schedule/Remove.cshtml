@@ -1,0 +1,19 @@
+﻿@model Workshop.ViewModels.RepairViewModel
+
+<form asp-controller="Schedule" asp-action="Remove" method="post">
+
+    <div style="width: 50%; margin: auto;">
+
+        <h1>Remove Appointment</h1>
+
+        <label asp-for="@Model.Schedule.Date" class="control-label">Occupied Dates</label>
+        <select asp-for="@Model.Schedule.Date" asp-items="@(new SelectList(Model.ScheduleList, "Date", "Date"))"
+                multiple="multiple" class="browser-default custom-select" style="height: 125px; line-height: 125px;">
+        </select>
+        <br /><br />
+
+        <button type="submit" class="btn btn-light">Remove</button>
+
+    </div>
+
+</form>

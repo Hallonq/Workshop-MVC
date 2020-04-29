@@ -1,0 +1,30 @@
+﻿@model Workshop.ViewModels.LoginViewModel
+
+<form asp-controller="Account" asp-action="Login" method="post">
+
+    <div style="width: 50%; margin: auto;">
+
+        <h1>Login</h1>
+
+        <label asp-for="Username" class="control-label"></label>
+        <input asp-for="Username" class="form-control" placeholder="Enter Username" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" placeholder="Enter Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <br />
+        <div class="form-group">
+            <div class="checkbox">
+                <label asp-for="RememberMe">
+                    <input asp-for="RememberMe" />
+                    @Html.DisplayNameFor(x => x.RememberMe)
+                </label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-light">Login</button>
+
+    </div>
+
+</form>

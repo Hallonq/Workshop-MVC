@@ -1,0 +1,36 @@
+﻿@model Workshop.ViewModels.RepairViewModel
+
+<form asp-controller="Schedule" asp-action="Schedule" method="post">
+
+    <div style="width: 50%; margin: auto;">
+
+        <h1>Repair</h1>
+
+        <label asp-for="@Model.Schedule.Date" class="control-label">Available Schedule</label>
+        <select asp-for="@Model.Schedule.Date" asp-items="@(new SelectList(Model.ScheduleList, "Date", "Date"))"
+                multiple="multiple" class="browser-default custom-select" style="height: 125px; line-height: 125px;">
+        </select>
+
+        <label asp-for="@Model.Cars.CarId" class="control-label">Plate-number</label>
+        <select asp-for="@Model.Cars.CarId" asp-items="@(new SelectList(Model.CarList, "CarId", "CarId"))"
+                multiple="multiple" class="browser-default custom-select" style="height: 125px; line-height: 125px;">
+        </select>
+        <br />
+
+        <label asp-for="@Model.RepairType.RepairTypeID" class="control-label">Chose Repair-Type</label>
+        <br />
+        @foreach (var repairType in Model.RepairTypeList)
+        {
+            <div style="margin-left: 4%;">
+                <input type="radio" asp-for="@Model.RepairType.RepairTypeName" value="@repairType.RepairTypeName"
+                       class="form-check-input" />@repairType.RepairTypeName
+                    <br />
+                </div>
+            }
+        <br />
+
+        <button type="submit" class="btn btn-light">Schedule</button>
+
+    </div>
+
+</form>

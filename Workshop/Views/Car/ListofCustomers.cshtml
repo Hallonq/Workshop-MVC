@@ -1,0 +1,23 @@
+﻿@model Workshop.ViewModels.RegisterCarViewModel
+
+<form asp-controller="Car" asp-action="RegisterCar">
+
+    <div style="width: 50%; margin: auto;">
+
+        <h1>Register Car</h1>
+
+        <label asp-for="@Model.Customers.CustomerId" class="control-label">Choose Customer</label>
+        <select asp-for="@Model.Customers.CustomerId" asp-items="@(new SelectList(Model.CustomerList, "CustomerId", "Firstname"))" 
+                multiple="multiple" class="browser-default custom-select">
+        </select>
+
+        <label asp-for="@Model.Cars.CarId" class="control-label">Plate-number</label>
+        <input asp-for="@Model.Cars.CarId" class="form-control" placeholder="Enter Plate-number" />
+        <span asp-validation-for="@Model.Cars.CarId" class="text-danger"></span>
+        <br />
+
+        <button type="submit" class="btn btn-light">Register Car</button>
+
+    </div>
+
+</form>
