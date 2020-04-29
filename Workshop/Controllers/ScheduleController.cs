@@ -22,58 +22,6 @@ namespace Workshop.Controllers
 
         public IActionResult Schedule()
         {
-            //RepairViewModel model = new RepairViewModel();
-
-            //string sql = $"SELECT * FROM Schedule";
-            //DBManager dbm = new DBManager(sql);
-            //DataTable tbl = dbm.ExecuteSQL();
-
-            //List<DateTime> dateList = new List<DateTime>();
-            //foreach (DataRow row in tbl.Rows)
-            //{
-            //    dateList.Add((DateTime)row["Date"]);
-            //}
-
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    // Date 25 & under.
-            //    if (DateTime.Now.Day <= 25)
-            //    {
-            //        DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + i, 09, 00, 00);
-            //        Schedule temp = new Schedule(i, date);
-            //        if (!dateList.Contains(date))
-            //        {
-            //            model.ScheduleList.Add(temp);
-            //        }
-            //    }
-
-            //    // Date over 25.
-            //    else
-            //    {
-            //        // Current month contains 30 days.
-            //        if (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month) == 30)
-            //        {
-            //            DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, DateTime.Now.Day - DateTime.Now.Day + 1 + i, 09, 00, 00);
-            //            var temp = new Schedule(i, date);
-            //            if (!dateList.Contains(date))
-            //            {
-            //                model.ScheduleList.Add(temp);
-            //            }
-            //        }
-
-            //        // Current month contains 31 days.
-            //        else if (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month) == 31)
-            //        {
-            //            DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 6, 09, 00, 00);
-            //            var temp = new Schedule(i, date);
-            //            if (!dateList.Contains(date))
-            //            {
-            //                model.ScheduleList.Add(temp);
-            //            }
-            //        }
-            //    }
-            //}
-
             RepairViewModel model = getScheduleList();
 
             model.CarList = _context.Cars.ToList();
@@ -138,7 +86,7 @@ namespace Workshop.Controllers
             return RedirectToAction("Index", "Home", TempData);
         }
 
-        // Metod för att hämta/skapa datum.
+        // Method för gathering/creating dates.
         public RepairViewModel getScheduleList()
         {
             RepairViewModel model = new RepairViewModel();
