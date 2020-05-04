@@ -106,7 +106,7 @@ namespace Workshop.Controllers
                 // Date 25 & under.
                 if (DateTime.Now.Day <= 25)
                 {
-                    DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + i, 09, 00, 00);
+                    DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + i + 1, 09, 00, 00);
                     Schedule temp = new Schedule(i, date);
                     if (!dateList.Contains(date))
                     {
@@ -120,7 +120,7 @@ namespace Workshop.Controllers
                     // Current month contains 30 days.
                     if (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month) == 30)
                     {
-                        DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, DateTime.Now.Day - DateTime.Now.Day + 1 + i, 09, 00, 00);
+                        DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, DateTime.Now.Day - DateTime.Now.Day + i + 1, 09, 00, 00);
                         var temp = new Schedule(i, date);
                         if (!dateList.Contains(date))
                         {
@@ -131,7 +131,7 @@ namespace Workshop.Controllers
                     // Current month contains 31 days.
                     else if (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month) == 31)
                     {
-                        DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 6, 09, 00, 00);
+                        DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + i + 6, 09, 00, 00);
                         var temp = new Schedule(i, date);
                         if (!dateList.Contains(date))
                         {
